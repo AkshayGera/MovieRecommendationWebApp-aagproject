@@ -1,0 +1,83 @@
+
+<html>
+<head>
+<style>
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.card {
+  border-radius: 2px;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  heigth:299px;
+  width:199px;
+  }
+.top-left {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="/node_modules/readmore-js/readmore.min.js"></script>
+</head>
+   <body>
+ 	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+   	<link rel=stylesheet type=text/css href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+   	<link rel=stylesheet type=text/css href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js">
+   	<link rel=stylesheet type=text/css href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js">
+
+
+		   <h1>Your Recommendation:{{name}}</h1>
+			<div class="row">
+				{%for result in results.iterrows()%}
+
+
+  						{%for item in result%}
+								{%if item['poster_path']!=nulls%}
+							<div class="card card-1" style="overflow:auto;" >
+
+								  <div>
+											<div>{{item['title']}}</div>
+								 </div>
+							 	 <img id="i" src="{{item['poster_path']}}" alt="Snow" style="width:100%;">
+
+								<div id="de" class="details top-left" style="display:none;">
+									<a href={{item['imdb_id']}}><p class="title">{{item['title']}}</p> </a>
+									<h6>Ratings:{{item['vote_average']}}/10
+										<br>	Release Date:{{item['release_date']}}
+									  <br><div class="overview" style="heigth:50%;">Overview:{{item['overview']}}</div></h6>
+								</div>
+							</div>
+								{%endif%}
+						{%endfor%}
+
+				{%endfor%}
+		</div>
+<script>
+$( "div.card" )
+  .mouseover(function() {
+
+      $(this).find('img').css("opacity",".25");
+      $(this).find("div.details").css("display","inline")
+      $(this).find("div.overview").readmore({
+  speed: 75,
+  lessLink: '<a href="#">Read less</a>'
+});
+
+  })
+  .mouseleave(function() {
+
+      $(this).find('img').css("opacity","1");
+      $(this).find("div.details").css("display","none")
+  })
+</script>
+   </body>
+</html>

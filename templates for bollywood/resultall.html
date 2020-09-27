@@ -1,0 +1,66 @@
+
+<html>
+   <body>
+ 	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+   	<link rel=stylesheet type=text/css href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+   	<link rel=stylesheet type=text/css href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js">
+   	<link rel=stylesheet type=text/css href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js">
+	<style>
+	#navbox2{
+		background-color: white;
+
+	}
+
+	.glowing {
+		text-align: center;
+	  -webkit-animation: glowing 1s ease-in-out infinite alternate;
+	  -moz-animation: glowing 1s ease-in-out infinite alternate;
+	  animation: glowing 1s ease-in-out infinite alternate;
+	}
+	@-webkit-keyframes glowing {
+	.glowimag {
+	    filter:drop-shadow(50px 0px 5px #bc4639);
+	    transition: all 0.5s linear;
+	}
+
+	</style>
+
+
+		   <h1>Your Recommendation:{{name}}</h1>
+			<div class="row">
+
+				{%for result in results.iterrows()%}
+					<div class="card" onmouseover="addGlow2()", onmouseleave="rmGlow2()" id="navbox2">
+						{%for item in result%}
+								{%if item['title']!=nulls%}
+
+
+									<a href={{item['imdb_id_url']}}><p class="title">{{item['title']}}</p> </a>
+
+
+											<br>({{item['releaseYear']}})
+												{%for genre in item['genre'] %}
+															{{genre}}
+												{%endfor%}
+											<br><h6>Ratings:{{item['hitFlop']}}/10
+										   </h6>
+											<button>Add to watchlist</button>
+
+								{%endif%}
+						{%endfor%}
+					</div>
+				{%endfor%}
+			</div>
+<script>
+
+
+   function addGlow2(){
+     	document.getElementById("navbox2").classList.add("glow");
+     }
+function rmGlow2(){
+     	document.getElementById("navbox2").classList.remove("glow");
+   }
+</script>
+
+   </body>
+</html>

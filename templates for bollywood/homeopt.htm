@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<style>
+
+
+</style>
+
+
+
+</head>
+
+<body>
+	<div id="mySidenav" class="sidenav">
+			<div style="padding-top:4vw; ">
+			  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			  <a href="#">Rating</a>
+			  <a href="#">Genre</a>
+			  <a href="#">Contentbase</a>
+			  <a href="#">Metadatabase</a>
+			  <a href="#">Poppularity</a>
+			</div>
+	</div>
+	<div id="mainbg" >
+
+		<nav style="background-color:#bc4639" class="navbar navbar-inverse">
+			<!--<nav style="background-color:#ac3b61" class="navbar navbar-inverse"> -->
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		    	<div id="main">
+					<span style="font-size:1.2vw;cursor:pointer; color: white;" onclick="openNav()">&#9776;</span>
+				</div>
+		    </div>
+		    <ul >
+		    	<li><a  href="#" style="position: absolute; left: 37.5vw; top:0.5vw; color: white; font-size: 2vw;">Movie Recommender</a></li>
+		    </ul>
+
+		  </div>
+		</nav>
+		<img class="glowimag" style="height: 12.5vw; position: absolute; top:11vw; right: 20vw;" src="O:\OneDrive\Movie\ml.png" >
+		<form>
+		  <input type="text" name="search" placeholder="Enter your Favourite Movie...">
+		</form>
+
+		<div  id="subdiv">
+			<div onmouseover="addGlow1()", onmouseleave="rmGlow1()" id="navbox1">
+				<div>
+					<span id="indent1" class="fa " style="color:#bc4639; font-size: 1.5vw; padding-top: 2vw;"></span>
+					<span id="indent2" class="fa " style="color:#bc4639; font-size: 1.5vw;"></span>
+					<span id="indent3" class="fa " style="color:#bc4639; font-size: 1.5vw;"></span>
+					<span id="indent4" class="fa " style="color:#bc4639; font-size: 1.5vw;"></span>
+					<span id="indent5" class="fa " style="color:#bc4639; font-size: 1.5vw;"></span>
+				</div>
+			</div>
+			<div onmouseover="addGlow2()", onmouseleave="rmGlow2()" id="navbox2">
+
+			</div>
+			<div onmouseover="addGlow3()", onmouseleave="rmGlow3()" id="navbox3">
+				<p>Hello2</p>
+			</div>
+			<div onmouseover="addGlow4()", onmouseleave="rmGlow4()" id="navbox4">
+				<p>Hello3</p>
+			</div>
+			<div onmouseover="addGlow5()", onmouseleave="rmGlow5()" id="navbox5">
+				<div style="text-align: center;">
+					<span id="pop1" class="fa " style="color:#bc4639; font-size: 2vw; padding-top: 2vw; "></span>
+					<span id="pop2" class="fa " style="color:#bc4639; padding-top: 2vw;  font-size: 2vw;"></span>
+					<span id="pop3" class="fa " style="color:#bc4639; font-size: 2vw;"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+	// For Overlay
+
+
+function openNav() {
+  document.getElementById("mySidenav").style.width = "220px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+}
+  function addGlow1(){
+  	document.getElementById("navbox1").classList.add("glow");
+  }
+  function rmGlow1(){
+  	document.getElementById("navbox1").classList.remove("glow");
+}
+
+function addGlow2(){
+  	document.getElementById("navbox2").classList.add("glow");
+  }
+  function rmGlow2(){
+  	document.getElementById("navbox2").classList.remove("glow");
+}
+function addGlow3(){
+  	document.getElementById("navbox3").classList.add("glow");
+  }
+  function rmGlow3(){
+  	document.getElementById("navbox3").classList.remove("glow");
+}
+
+function addGlow4(){
+  	document.getElementById("navbox4").classList.add("glow");
+  }
+  function rmGlow4(){
+  	document.getElementById("navbox4").classList.remove("glow");
+}
+function addGlow5(){
+  	document.getElementById("navbox5").classList.add("glow");
+  }
+  function rmGlow5(){
+  	document.getElementById("navbox5").classList.remove("glow");
+}
+
+function ratestar() {
+  var a;
+  a1 = document.getElementById("indent1");
+  a2 = document.getElementById("indent2");
+  a3 = document.getElementById("indent3");
+  a4 = document.getElementById("indent4");
+  a5 = document.getElementById("indent5");
+  a1.innerHTML = "&#xf006;";
+  a2.innerHTML = "&#xf006;";
+  a3.innerHTML = "&#xf006;";
+  a4.innerHTML = "&#xf006;";
+  a5.innerHTML = "&#xf006;";
+  setTimeout(function () {
+      a1.innerHTML = "&#xf005;";
+    }, 500);
+  setTimeout(function () {
+      a2.innerHTML = "&#xf005;";
+    }, 1000);
+  setTimeout(function () {
+      a3.innerHTML = "&#xf005;";
+    }, 1500);
+  setTimeout(function () {
+      a4.innerHTML = "&#xf005;";
+    }, 2000);
+  setTimeout(function () {
+      a5.innerHTML = "&#xf005;";
+    }, 2500);
+}
+
+ratestar();
+setInterval(ratestar, 3000);
+
+
+function popularity() {
+  var a;
+  b1 = document.getElementById("pop1");
+  b2 = document.getElementById("pop2");
+  b3 = document.getElementById("pop3");
+
+  setTimeout(function () {
+      b1.innerHTML = "&#xf006;";
+    },1000);
+  setTimeout(function () {
+      b1.innerHTML = "&#xf005;";
+    }, 2000);
+  setTimeout(function () {
+      b2.innerHTML = " + ";
+    }, 3000);
+  setTimeout(function () {
+      b3.innerHTML = "&#xf0E6;";
+    }, 4000);
+  setTimeout(function () {
+      b3.innerHTML = "&#xf086";
+    }, 5000);
+  setTimeout(function () {
+      b1.innerHTML = "";
+      b2.innerHTML="";
+      b3.innerHTML="";
+    }, 6000);
+  setTimeout(function () {
+      b2.innerHTML = "&#XF251";
+
+    }, 6000);
+  setTimeout(function () {
+      b2.innerHTML = "&#XF252";
+
+    }, 7000);
+  setTimeout(function () {
+      b2.innerHTML = "&#XF253";
+
+    }, 8000);
+  setTimeout(function () {
+      b1.innerHTML = "";
+      b2.innerHTML="";
+      b3.innerHTML="";
+    }, 9000);
+
+}
+
+popularity();
+setInterval(popularity, 9000);
+
+
+
+</script>
+</body>
+</html>

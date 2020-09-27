@@ -1,0 +1,36 @@
+
+<html>
+   <body>
+ 	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+   	<link rel=stylesheet type=text/css href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+   	<link rel=stylesheet type=text/css href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js">
+   	<link rel=stylesheet type=text/css href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js">
+
+
+		   <h1>Your Recommendation:{{name}}</h1>
+			<div class="row">
+
+				{%for result in results.iterrows()%}
+					<div class="card">
+						{%for item in result%}
+								{%if item['poster_path']!=nulls%}
+
+									 <div class="container-img"><img src={{item['poster_path']}} alt="Snow" style="opacity:1;width:250px;height:250px"></div>
+									<a href={{item['imdb_id_url']}}><p class="title">{{item['title']}}</p> </a>
+
+
+											<br>({{item['releaseYear']}})
+												{%for genre in item['genre'] %}
+															{{genre}}
+												{%endfor%}
+											<br><h6>Ratings:{{item['hitFlop']}}/10
+										   <br>Overview :{{item['overview']}}</h6>
+											<button>Add to watchlist</button>
+
+								{%endif%}
+						{%endfor%}
+					</div>
+				{%endfor%}
+			</div>
+   </body>
+</html>

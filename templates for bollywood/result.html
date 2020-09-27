@@ -1,0 +1,17 @@
+<html>
+   <body>
+   	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+     <div class=page>
+	   <h1>Your Recommendation</h1>
+
+	     {{ result|safe }}
+</div>
+
+<a href="http://localhost:5000/ByMetadataBased">By Metadata Based</a></br>
+<a href="http://localhost:5000/ByPopularityBased">By Popularity Based</a></br>
+<a href="http://localhost:5000/ByRating">By Rating Based</a></br>
+<a href="http://localhost:5000/ByGenres">By Genres Based</a></br>
+<a href="http://localhost:5000/ByContentBased">By Content Based</a></br>
+   </body>
+</html>

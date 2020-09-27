@@ -1,0 +1,176 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+
+
+
+</head>
+
+<link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
+
+<body>
+	<div id="mySidenav" class="sidenav" style="z-index:99999999; background-color: #212529;   color: #007bff; font-family: 'Acme', sans-serif;"">
+				<div style="padding-top:4vw; ">
+				  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				  <a href="http://localhost:5000/Home">Home</a>
+
+				  <li class="cat">----------- CATEGORIES -----------</li>
+				  <a href="http://localhost:5000/ByRating">Rating</a>
+				  <a href="http://localhost:5000/ByGenres">Genre</a>
+				  <a href="http://localhost:5000/ByContentBased">Contentbase</a>
+				  <a href="http://localhost:5000/ByMetadataBased">Metadatabase</a>
+				  <a href="http://localhost:5000/ByPopularityBased">Popularity</a>
+				</div>
+	</div>
+	<div id="mainbg" class="sticky" >
+
+		<nav style="background-color: #212529;   color: #007bff; font-family: 'Lobster', cursive;"  class="navbar navbar-inverse">
+			<!--<nav style="background-color:#ac3b61" class="navbar navbar-inverse"> -->
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		    	<div id="main">
+					<span style="font-size:1.2vw;cursor:pointer; color: white;" onclick="openNav()">&#9776;</span>
+				</div>
+		    </div>
+		    <p style="position: absolute; left: 40.5vw; top:0.5vw; color: #007bff;font-size: 2vw;">Movie Recommender</p>
+
+		  </div>
+		</nav>
+		<img class="glowimag" style="height: 10vw; position: absolute; top:19.5vw; right: 45vw;" src="/static/ml.png">
+
+<style>
+
+#navbox3{
+	position: absolute;
+	width: 25vw;
+	height: 10vw;
+	background-color: white;
+	border-radius: 2vw;
+	left:27.5vw;
+	text-align: center;
+}
+
+
+</style>
+
+<form action = "http://localhost:5000/ByContentBased" method = "post" autocomplete="off">
+		  <div class="autocomplete" style="width:300px;" >
+		  <input id="myInput" type="text" name="movie" placeholder="Enter your Favourite Movie...">
+
+		  </div>
+		  <pre style="opacity:0">
+
+
+
+
+		  </pre>
+		   {%if err!=nulls%}
+		   <div class="alert alert-danger" align="center">
+		       <strong>Error!</strong> {{err}}
+		    </div>
+
+		    {%endif%}
+
+			<div align="center">
+			<button class="button  search"  >Search</button>
+			</div>
+</form>
+
+		<div  id="subdiv">
+					<div onmouseover="addGlow3()", onmouseleave="rmGlow3()" id="navbox3">
+						<div style="text-align: center;">
+							<span id="con1" class="fa " style="color:#333; font-size: 2vw; padding-top: 2vw; "></span>
+							<span id="con2" class="fa " style="color:#333; padding-top: 2vw;  font-size: 2vw;"></span>
+							<span id="con3" class="fa " style="color:#333; padding-top: 2vw;  font-size: 2vw;"></span>
+
+
+						</div>
+						<p style="font-size: 2vw; padding-top: 2vw; color:#333; font-weight: bold; ">Contentbased</p>
+					</div>
+		</div>
+	<script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+
+<script>
+	// For Overlay
+
+
+function openNav() {
+  document.getElementById("mySidenav").style.width = "220px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+}
+  function addGlow3(){
+  	document.getElementById("navbox3").classList.add("glow");
+  }
+  function rmGlow3(){
+  	document.getElementById("navbox3").classList.remove("glow");
+}
+
+
+function contentch() {
+
+  c1 = document.getElementById("con1");
+  c2 = document.getElementById("con2");
+  c3 = document.getElementById("con3");
+
+  setTimeout(function () {
+      c1.innerHTML = "&#XF02B;";
+    }, 500);
+  setTimeout(function () {
+      c1.innerHTML = "&#XF02C;";
+    }, 1000);
+  setTimeout(function () {
+      c2.innerHTML = "+";
+    }, 1500);
+  setTimeout(function () {
+      c3.innerHTML = "&#XF034;";
+    }, 2000);
+  setTimeout(function () {
+      c3.innerHTML = "&#XF035;";
+    }, 2500);
+
+  setTimeout(function () {
+      c1.innerHTML = "";
+      c2.innerHTML="";
+      c3.innerHTML="";
+    }, 3000);
+  setTimeout(function () {
+      c2.innerHTML = "&#XF251";
+
+    }, 3000);
+  setTimeout(function () {
+      c2.innerHTML = "&#XF252";
+
+    }, 3500);
+  setTimeout(function () {
+      c2.innerHTML = "&#XF253";
+
+    }, 4000);
+  setTimeout(function () {
+      c1.innerHTML = "";
+      c2.innerHTML="";
+      c3.innerHTML="";
+    }, 4500);
+}
+
+contentch();
+setInterval(contentch, 5000);
+
+</script>
+   </body>
+   </html>

@@ -1,0 +1,273 @@
+
+body {
+  font-family: 'Alegreya SC';
+  transition: background-color .5s;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index:9999999;
+}
+
+	#mainbg{
+		 //background-image: linear-gradient(to bottom right, #eee2dc, #d4a59a);
+		 /*background-image: linear-gradient(to bottom right, #eee2dc, #edc7bd );*/
+		    background-image: linear-gradient(to bottom right, #007777,#003333);
+		min-width: 100%;
+		 min-height: 100%;
+		 position: absolute;
+		 left: 0px;
+		 top: 0px;
+	}
+
+	input[type=text] {
+		position: absolute;
+		top: -4vw;
+		left: 10vw;
+	  width: 20vw;
+	  color:#222
+	  box-sizing: border-box;
+	  border: 2px solid #333;
+	  border-radius: 4px;
+	  font-size: 16px;
+	  background-color: white;
+	  background-position: 10px 10px; 
+	  background-repeat: no-repeat;
+	  padding: 1vw 2vw 1vw 3vw;
+	  -webkit-transition: width 0.4s ease-in-out;
+	  transition: width 1s ease-in-out, left 1s ease-in-out,padding 1s ease-in-out;
+}
+
+input[type=text]:focus {
+	left: 0vw;
+  	width: 40vw;
+  	padding: 1vw 2vw 1vw 12vw;
+  	border: 4px solid #555;
+  	transition: padding 1s ease-in-out, left 1s ease-in-out, width 1 ease-in-out;
+}
+
+.autocomplete {
+color:#00aaaa;
+  position: absolute;
+  top: 12vw;
+  left:30vw;
+  display: inline-block;
+  z-index: 1;
+}
+
+
+.autocomplete-items {
+	width: 40vw;
+  position: absolute;
+  border: 2px solid #00aaaa;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #003333; 
+  border-bottom: 1px solid #00aaaa ; 
+}
+
+.autocomplete-items div:hover {
+	color:white;
+  background-color: #002222; 
+}
+
+.glowimag { 
+    filter:drop-shadow(50px -20px 4px #001111);
+    
+}
+
+
+.autocomplete-active {
+  background-color: #002222 !important; 
+  color: #ffffff; 
+}
+#subdiv{
+	position: fixed;
+	top:33vw;
+	left: 10vw;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+ # background-image: linear-gradient(to bottom right, #bc4639, #bc4639);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+
+
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  #color: white;
+   color: #007bff;	
+ display: block;
+  transition: 0.3s;
+  
+}
+
+.sidenav a:hover {
+  color: #ffffff;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.cat{
+	padding-top: 2vw;
+	text-decoration: none;
+  font-size: 15px;
+  color: white;
+  display: block;
+}
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#navbox5{
+	position: absolute;
+	width: 10vw;
+	height: 8vw;
+	background-color: white;
+	border-radius: 2vw;
+	left:65vw;
+}
+#navbox4{
+	position: absolute;
+	width: 10vw;
+	height: 8vw;
+	background-color: white;
+	border-radius: 2vw;
+	left:50vw;
+}
+#navbox3{
+	position: absolute;
+	width: 10vw;
+	height: 8vw;
+	background-color: white;
+	border-radius: 2vw;
+	left:35vw;
+}
+#navbox2{
+	position: absolute;
+	width: 10vw;
+	height: 8vw;
+	background-color: white;
+	border-radius: 2vw;
+	left:20vw;
+}
+#navbox1{
+	position: absolute;
+	width: 10vw;
+	height: 8vw;
+	background-color: white;
+	border-radius: 2vw;
+	left:5vw;
+	text-align: center;
+}
+
+
+
+.glow {
+	text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+
+@-webkit-keyframes glow {
+  from {
+    box-shadow: 0 0 20px #184164, 0 0 30px #184164, 0 0 40px #184164, 0 0 50px #184164, 0 0 60px #184164, 0 0 70px #184164, 0 0 80px #184164;
+  }
+  
+  to {
+    box-shadow: 0 0 10px #333, 0 0 20px #333, 0 0 30px #333, 0 0 40px #333, 0 0 50px #333, 0 0 60px #333, 0 0 70px #333;
+    
+  }
+}
+
+.button {
+  display: inline-block;
+  font-family: "Montserrat", "Trebuchet MS", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  padding: 0.8em 1.4em;
+  padding-right: 4.7em;
+  background: #333;
+  border: none;
+  color: white;
+  transition: 0.2s;
+}
+.button:before,
+.button:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding-top: inherit;
+  padding-bottom: inherit;
+  width: 2.8em;
+  content: "\00a0";
+  font-family: 'FontAwesome', sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  transition: 0.2s;
+  transform-origin: 50% 60%;
+}
+.button:before {
+  background: rgba(0, 0, 0, 0.1);
+}
+.button:hover {
+  background: #111;
+}
+.button:active,
+.button:focus {
+  outline: none;
+}
+.button {
+  min-width: 15em;
+}
+
+.search:after {
+  content: "\f002";
+}
+.search:hover:after {
+  -webkit-animation: none;
+  -webkit-transform: scale(1.4);
+  animation: none;
+  transform: scale(1.4);
+}
+
+.alert-danger {
+    color: #111;
+     font-size: 1.2em;
+    background-color: rgba(0,0,0,0);
+    border-color: #111;
+}

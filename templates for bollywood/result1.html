@@ -1,0 +1,33 @@
+<html>
+   <body>
+   	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+   	<link rel=stylesheet type=text/css href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+   	<link rel=stylesheet type=text/css href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js">
+   	<link rel=stylesheet type=text/css href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js">
+
+		   <h1>Your Recommendation</h1>
+		   <div class="row">
+				{%for result in results.iterrows()%}
+				<div class="card">
+					{%for item in result%}
+						{%if item['poster_path']!=nulls%}
+						<div class="container-img"><img src={{item['poster_path']}} width="100"></div>
+						<a href={{item['imdb_id']}}><p class="title">{{item['title']}}</p> </a>
+
+						<h6>Ratings:{{item['vote_average']}}/10
+						<br>	Release Date:{{item['release_date']}}
+								<br>Overview :{{item['overview']}}</h6>
+								<button>Add to watchlist</button>
+						{%endif%}
+					{%endfor%}
+				</div>
+				{%endfor%}
+			</div>
+
+<a href="http://localhost:5000/ByMetadataBased">By Metadata Based</a></br>
+<a href="http://localhost:5000/ByPopularityBased">By Popularity Based</a></br>
+<a href="http://localhost:5000/ByRating">By Rating Based</a></br>
+<a href="http://localhost:5000/ByGenres">By Genres Based</a></br>
+<a href="http://localhost:5000/ByContentBased">By Content Based</a></br>
+   </body>
+</html>
